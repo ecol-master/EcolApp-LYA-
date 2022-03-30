@@ -6,46 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../static/style_main_template.css">
+
+    <!--Подключаю шрифты-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!--Подклчение сторонних файлов-->
+    <link rel="stylesheet" href="../static/css/style_main_tamplate.css">
+
 </head>
-<div class="wrapper">
-    <!--Header - внешня шапочка проекта-->
-    <header class="header">
-        <div class="header__container">
-            <a href="" class="header__logo">
-                <img src="logo.svg" alt="" />
-            </a>
-            <nav class="header__menu menu">
-                <ul class="menu__list">
-                    <li class="menu__item">
-                        <a href="" class="menu__link">HOME</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="" class="menu__link">FEATURES</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="" class="menu__link">SUPPORT</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="" class="menu__link">CONTACTS US</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="header__button">
-                <a href="" class="button button__blue">DOWNLOAD</a>
-            </div>
-        </div>
-    </header>
-
-    <!--Footer - нижний блок на сайте-->
-    <footer class="footer">
-
-    </footer>
-</div>
 
 <body>
+    <!--Оболочка всей верстки-->
+    <div class="wrapper">
+        <!--Верхняя шапка макета-->
+        <header class="header">
+            <div class="header__container">
+                <div class="header__logo">
+                    <img src="../static/images/logo.svg" alt="">
+                </div>
+                <div class="header__menu">
+                    <ul class="header__list">
+                        <li class="header__item">Обучение</li>
+                        <li class="header__item">Форум</li>
+                        <li class="header__item">Новости</li>
+                        <li class="header__item">Профиль</li>
+                        <li class="header__item">Настройки</li>
+                    </ul>
+                </div>
+                
+                <button class="header__button">Главная</button>
+            </div>
+        </header>
 
+        <!--Основной блок с контентом на странице-->
+        <main>
+            <div class="main__container">
+                <div class="tab-buttons">
+                    <button class="tablinks active" data-id="london">London</button>
+                    <button class="tablinks" data-id="paris">Paris</button>
+                    <button class="tablinks" data-id="tokyo">Tokyo</button>
+                </div>
+
+                <div id="london" class="tabcontent active">
+                    <h3>London</h3>
+                    <p>London is the capital city of England.</p>
+                </div>
+
+                <div id="paris" class="tabcontent">
+                    <h3>Paris</h3>
+                    <p>Paris is the capital of France.</p>
+                </div>
+
+                <div id="tokyo" class="tabcontent">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is the capital of Japan.</p>
+                </div>
+            </div>
+        </main>
+
+        <!--Нижняя часть страницы-->
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+    <script src="../static/scripts/script.js"></script>
 </body>
 
 </html>
