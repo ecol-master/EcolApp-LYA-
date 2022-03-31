@@ -37,10 +37,12 @@ body {
     line-height: 1;
 }
 
-.wrapper {}
+.wrapper {
+    direction: column;
+}
 
 .header {
-    background-color: rgb(224, 255, 255);
+    background-color: rgba(172, 172, 172, 0.5); 
 }
 
 .header__container {
@@ -63,6 +65,10 @@ body {
 }
 
 .header__item {
+    
+}
+
+.header__link{
     font-size: 18px;
     color: rgba(0, 0, 0, 0.65);
     font-family: 'Roboto', sans-serif;
