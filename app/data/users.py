@@ -15,3 +15,5 @@ class User(SqlAlchemyBase, SerializerMixin):
 
     email = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     data_registration = sqlalchemy.Column(sqlalchemy.DateTime, nullable=True)
+    password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    
