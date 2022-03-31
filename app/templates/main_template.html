@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Подключаю шрифты-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!--Подклчение сторонних файлов-->
+    <link rel="stylesheet" href="../static/css/style_main_tamplate.css">
+
+</head>
+
+<body>
+    <!--Оболочка всей верстки-->
+    <div class="wrapper">
+        <!--Верхняя шапка макета-->
+        <header class="header">
+            <div class="header__container">
+                <div class="header__logo">
+                    <img src="../static/images/logo.svg" alt="">
+                </div>
+                <div class="header__menu">
+                    <ul class="header__list">
+                        <li class="header__item">
+                            <a href={{learn__link}} class="header__link">Обучение</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="" class="header__link">Форум</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="" class="header__link">Новости</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="" class="header__link">Профиль</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="" class="header__link">Настройки</a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="header__button">Главная</button>
+            </div>
+        </header>
+
+        <!--Основной блок с контентом на странице-->
+        <main>
+            <div class="main__container">
+                <div class="tab-buttons">
+                    <button class="tablinks active" data-id="london">London</button>
+                    <button class="tablinks" data-id="paris">Paris</button>
+                    <button class="tablinks" data-id="tokyo">Tokyo</button>
+                </div>
+
+                <div id="london" class="tabcontent active">
+                    <h3>London</h3>
+                    <p>London is the capital city of England.</p>
+                </div>
+
+                <div id="paris" class="tabcontent">
+                    <h3>Paris</h3>
+                    <p>Paris is the capital of France.</p>
+                </div>
+
+                <div id="tokyo" class="tabcontent">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is the capital of Japan.</p>
+                </div>
+            </div>
+        </main>
+
+        <!--Нижняя часть страницы-->
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+    <script src="../static/scripts/script.js"></script>
+</body>
+
+</html>

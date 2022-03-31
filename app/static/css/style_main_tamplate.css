@@ -1,0 +1,150 @@
+*,
+*::before,
+::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    line-height: 1;
+}
+
+.wrapper {
+    direction: column;
+}
+
+.header {
+    background-color: rgba(172, 172, 172, 0.5); 
+}
+
+.header__container {
+    display: flex;
+    height: 100px;
+    align-items: center; 
+    
+}
+
+.header__logo {}
+
+.header__menu {
+    width: 100%;
+}
+
+.header__list {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.header__item {
+    
+}
+
+.header__link{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.65);
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+
+.header__button{
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+
+/* мои стили */
+
+.container {
+    width: 300px;
+    margin: 0 auto;
+}
+
+
+/* Style the tab */
+
+.tab-buttons {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+
+/* Style the buttons that are used to open the tab content */
+
+.tab-buttons button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+
+/* Change background color of buttons on hover */
+
+.tab-buttons button:hover {
+    background-color: black;
+    color: white;
+}
+
+
+/* Create an active/current tablink class */
+
+.tab-buttons button.active {
+    background-color: black;
+    color: white;
+}
+
+
+/* Style the tab content */
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.tabcontent.active {
+    display: block;
+}
+
+[class*="__container"] {
+    max-width: 1057px;
+    margin: 0 auto;
+}
