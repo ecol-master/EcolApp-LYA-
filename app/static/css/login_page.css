@@ -1,0 +1,89 @@
+*,
+*::before,
+::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    line-height: 1;
+}
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
+    font-family: 'Roboto', sans-serif;
+}
+
+.content__top{
+    display: flex;
+    flex-direction: column;
+    height: 132px;
+    justify-content: space-around;
+}
+
+.content__logo{}
+
+.content__image{
+    width: 30%;
+}
+
+.content__text{
+    font-size: 20px;
+}
+
+.content__element{
+    display: flex;
+    justify-content: center;
+}
+
+.content__form{}
+
+.block__email{}
+
+.text__email{}
+
+.block__password{}
+
+.text__password{}
+
+.button__login{
+    width: 100%;
+    background: darkseagreen;
+    padding: 6px;
+    border-radius: 10px;
+}

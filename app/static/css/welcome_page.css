@@ -134,9 +134,11 @@ body {
     display: flex;
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
+    height: 654px;
 }
 .content__finder {
 }
+
 .main__text {
     font-size: 68px;
     font-weight: 80px;
