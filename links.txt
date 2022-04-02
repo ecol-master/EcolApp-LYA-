@@ -1,3 +1,6 @@
 https://github.com/SergeiZahar86/freelancer.burger - меню бургер для сайта
 https://www.flaticon.com/ru/icons - иконки
 git push https://github.com/ecol-master/EcolApp-LYA-.git - команда для отправки комитов
+
+# для тг бота
+https://github.com/MasterGroosha/telegram-feedback-bot/blob/master/bot/commandsworker.py - ссылка на репозиторий груши, код для подключения команд для бота через код
