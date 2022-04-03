@@ -4,54 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <title>LOGIN</title>
 
+    <!--Подключаю другие файлы-->
+    <link rel="stylesheet" href="../static/css/login_page.css">
+
+    <!--Подключаю шрифты-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../static/css/login_page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
         <div class="content">
-            <div class="content__top">
-                <div class="content__logo content__element">
-                    <img src="../static/images/logo_welcome_page.svg" alt="" class="content__image">
+            <!---->
+            <div class="content__title">
+                <!---->
+                <div class="content__image">
+                    <img src="../static/images/logo_welcome_page.svg" alt="" class="login__image">
                 </div>
-                <div class="content__text content__element">
-                    <p class="text">
-                        Login to EcolStudy
-                    </p>
+                <!---->
+                <div class="content__text">
+                    Sign in EcolStudy
                 </div>
             </div>
-            {% block login %}
-            <form action="" method="post" novalidate class="content__form">
-                {{ form.hidden_tag() }}
-                <div class="block__email">
-                    {{ form.email.label(class="text__email") }}<br>
-                    {{ form.email(class="form-control") }}<br>
+            <!---->
+            <div class="content__form">
+                <form action="" method="post" class="login__form">
+                    {{ form.email(class="input__email", type="email", placeholder="Email") }}
+
                     {% for error in form.email.errors %}
-                    <div class="alert alert-danger" role="alert">
-                        {{ error }}
-                    </div>
+                        <div class="error" role="alert">
+                            {{ error }}
+                        </div>
                     {% endfor %}
+                    <input type="text" >
+                    
+                    {{ form.password(class="input__password", type="password", placeholder="Password") }}
+                    {% for error in form.password.errors %}
+                        <div class="error" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                    <div class="remember__me">
+                        {{ form.remember_me() }} {{ form.remember_me.label }}
+                    </div>
+                    {{ form.submit(type="submit", class="button__login") }}
+                    <div>{{ message }}</div>
+                </form>
+            </div>
+            <!---->
+            <div class="content__register">
+                <!---->
+                <div class="register__text">
+                    Don't have an account yet?
                 </div>
 
-                <div class="block__password">
-                    {{ form.password.label(class="text__password") }}<br>
-                    {{ form.password(class="form-control", type="password") }}<br>
-                    {% for error in form.password.errors %}
-                    <div class="alert alert-danger" role="alert">
-                        {{ error }}
-                    </div>
-                    {% endfor %}
+                <!---->
+                <div class="register__button">
+                    <button class="button__register">Register</button>
                 </div>
-                <div class="button__login">
-                    {{ form.submit(type="submit", class="btn btn-primary") }}
-                </div>
-            </form>
-            {% endblock %}
+            </div>
         </div>
     </div>
 </body>
