@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Подключение других файлов к шаблону-->
+    <link rel="stylesheet" href="../static/css/welcome_page.css">
+
+    <!--Подключение шрифтов-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!--Оболочка для содержимого сайта-->
+    <div class="wrapper">
+        <!--Шапочка сайта с классом caontainer-->
+        <header class="header__container">
+            <!--Блок с логотипом сайта-->
+            <div class="header__logo">
+                <img src="../static/images/logo_welcome_page.svg" alt="image_logo">
+            </div>
+            
+            <!--Блок с ссылками и кнопками-->
+            <div class="header__navigation">
+                <!--Меню с ссылками -->
+                <div class="header__menu">
+                    <ul class="header__list">
+                        <li class="header__item">
+                            <a href="" class="header__link">Home</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="" class="header__link">About</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="" class="header__link">Partners</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!--Блок с кнопками -->
+                <div class="header__buttons">
+                    <div class="button__login header__button">
+                        <a href="http://127.0.0.1:5000/login" class="button__text text__login">Login</a>
+                    </div>
+                    
+                    <div class="button__register header__button">
+                        <a href="" class="button__text text__register">Register</a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <!--Блок с контентом на главной странице-->
+        <main class="content__container">
+            <!--Первый блок с контентом-->
+            <div class="content__block1">
+                <!--Блок с поиском в первом блоке-->
+                <div class="content__finder">
+                    <!--Главный текст-->
+                    <div class="main__text">
+                        <p>Explore and Travel</p>
+                    </div>
+                    <!--Блок с текстом поменьше-->
+                    <div class="low__text">
+                        <p>Holiday Finder</p>
+                        <div class="finder__line"></div>
+                    </div>
+                    <!--Блок с формами для поиска-->
+                    <div class="finder__forms">
+                        <div class="forms__level1">
+                            <input type="text">
+                            <input type="search" name="" id="">
+                        </div>
+                        <div class="forms level2">
+                            <input type="text">
+                            <input type="search" name="" id="">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Картинка -->
+                <div class="content__image1">
+                    <img src="../static/images/img1_welcome_page.svg" alt="">
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+</body>
+</html>
