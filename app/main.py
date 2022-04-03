@@ -30,6 +30,7 @@ def register():
 def learn():
     pass
 
+# some changes
 
 if __name__ == "__main__":
     app.run()
