@@ -47,9 +47,9 @@
                         </div>
                     {% endfor %}
                     <div class="remember__me">
-                        {{ form.remember_me() }} {{ form.remember_me.label }}
+                        {{ form.remember_me() }} Remember me
                     </div>
-                    {{ form.submit(type="submit", class="button__login") }}
+                    {{ form.submit(type="submit", class="button__login", value="Login") }}
                     <div>{{ message }}</div>
                 </form>
             </div>

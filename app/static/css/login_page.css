@@ -50,6 +50,7 @@ body {
     line-height: 1.5;
     font-weight: 300;
     font-size: 16px;
+    transition: all 0.5s ease 0s;
 }
 
 .content__title {
@@ -146,6 +147,6 @@ body {
     color: white;
 }
 
-.button__register :hover{
-    background-color: #5795e7;
+.button__register:hover{
+    background-color: #6ba0e4;
 }
