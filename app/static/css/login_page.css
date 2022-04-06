@@ -37,53 +37,120 @@ body {
     line-height: 1;
 }
 
-.wrapper{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
+.wrapper {
     justify-content: center;
+    display: flex;
+    height: 100%;
+    align-items: center;
 }
 
 .content{
-    font-family: 'Roboto', sans-serif;
+    padding: 10px 10px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    line-height: 1.5;
+    font-weight: 300;
+    font-size: 16px;
+    transition: all 0.5s ease 0s;
 }
 
-.content__top{
+.content__title {
     display: flex;
+    height: 100px;
     flex-direction: column;
-    height: 132px;
     justify-content: space-around;
+    margin-bottom: 24px;
 }
 
-.content__logo{}
-
-.content__image{
-    width: 30%;
-}
-
-.content__text{
-    font-size: 20px;
-}
-
-.content__element{
+.content__image {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
-.content__form{}
+.login__image {
+    
+    width: 50px;
+}
+.content__text {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+}
+.content__form {
+    padding: 10px 15px;
+    height: 224px;
+    border-radius: 10px;
+    background-color: #f6f8fa;
+    border: 1px solid hsl(210 18% 81% / 1);
+}
+.login__form{
+    display: flex;
+    flex-direction: column;
+    height: 140px;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
 
-.block__email{}
+.input__email{
+    border-radius: 5px;
+    height: 30px;
+    width: 280px;
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color:  #4d8fe6;
+}
 
-.text__email{}
-
-.block__password{}
-
-.text__password{}
+.input__password{
+    height: 30px;
+    width: 280px;
+    border-radius: 5px;
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color:  #4d8fe6;
+}
 
 .button__login{
-    width: 100%;
-    background: darkseagreen;
-    padding: 6px;
+    width: 218px;
+    height: 30px;
+    background-color: #2da44e;
+    color: white;
     border-radius: 10px;
+}
+
+.button__login:hover{
+    background-color: #44d16c;;
+}
+
+.content__register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 98px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #f6f8fa;
+    border: 1px solid hsl(210 18% 81% / 1);
+}
+
+
+.register__text {
+}
+
+.register__button {
+}
+
+.button__register {
+    height: 30px;
+    width: 218px;
+    border-radius: 10px;
+    background-color: #1a73e8;
+    
+}
+
+.link__register{
+    color: white;
+}
+
+.button__register:hover{
+    background-color: #6ba0e4;
 }

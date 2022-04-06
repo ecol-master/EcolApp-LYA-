@@ -36,3 +36,156 @@ body {
     height: 100%;
     line-height: 1;
 }
+
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+.content {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    line-height: 1.5;
+    font-weight: 300;
+    font-size: 16px;
+    transition: all 0.5s ease 0s;
+}
+
+.content__title {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    justify-content: space-around;
+}
+
+.content__image {}
+
+.image {
+    width: 50px;
+}
+
+.content__text {
+    font-size: 20px;
+}
+
+.content__form {
+    padding: 15px 15px;
+    background-color: #f6f8fa;
+    border: 1px solid hsl(210 18% 81% / 1);
+    border-radius: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 240px; */
+    justify-content: space-evenly;
+}
+
+.form__block{
+    margin-bottom: 15px;
+}
+
+.form__email {}
+
+.form__error {}
+
+.form__password {}
+
+.form__passwordagain {}
+
+.form__name {}
+
+.form_element{
+    height: 30px;
+    width: 280px;
+}
+
+.email__input{
+    height: 30px;
+    width: 280px;
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color: #4d8fe6;
+    border-radius: 5px;
+}
+
+.password__input{
+    height: 30px;
+    width: 280px;
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color: #4d8fe6;
+    border-radius: 5px;
+}
+
+.passwordagain__input{
+    height: 30px;
+    width: 280px;
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color: #4d8fe6;
+    border-radius: 5px;
+}
+
+.name__input{
+    height: 30px;
+    width: 280px;
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color: #4d8fe6;
+    border-radius: 5px;
+}
+
+.form__about {
+    
+}
+
+.input__about{
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color: #4d8fe6;
+    border-radius: 5px;
+    width: 280px;
+    resize: none;
+    height: 100px;
+}
+
+.form__button {}
+
+.button__submit{
+    border-radius: 7px;
+    width: 218px;
+    height: 30px;
+    background-color: #e09f15;
+    color: white;
+}
+
+.content__login {
+    margin-top: 20px;
+    background-color: #f6f8fa;
+    border: 1px solid hsl(210 18% 81% / 1);
+    padding: 15px 15px;
+    border-radius: 10px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.login__text {}
+
+.block__button {}
+
+.button__login {
+    width: 218px;
+    height: 30px;
+    background-color: #1a73e8;
+    border-radius: 7px;
+}
+
+.login__link {
+    color: white;
+}

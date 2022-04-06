@@ -1,12 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+
+    <!--Подключаю сторонние файлы-->
+    <link rel="stylesheet" href="../static/css/register_page.css" />
 </head>
+
 <body>
-    
+    <div class="wrapper">
+        <div class="content">
+            <!---->
+            <div class="content__title">
+                <!---->
+                <div class="content__image">
+                    <img src="../static/images/logo_welcome_page.svg" alt="" class="image" />
+                </div>
+
+                <!---->
+                <div class="content__text">Register to EcolStudy</div>
+            </div>
+
+            <!---->
+            <div class="content__form">
+                <form action="" method="post" class="form">
+                    <!--Блок с полем для ввода почты и вывода ошибок в случае ошибки-->
+                    <div class="form__email form__block">
+                        {{ form.email(class="email__input form__element", type="email",
+                        placeholder="Email") }} {% for error in form.email.errors %}
+                        <div class="form__error" role="alert">{{ error }}</div>
+
+                        {% endfor %}
+                    </div>
+
+                    <!---->
+                    <div class="form__password form__block">
+                        {{ form.password(class="password__input form__element", type="password",
+                        placeholder="Password") }} {% for error in form.password.errors %}
+                        <div class="form__error" role="alert">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+
+                    <!---->
+                    <div class="form__passwordagain form__block">
+                        {{ form.password_again(class="passwordagain__input form__element",
+                        type="password", placeholder="Password again") }} {% for error in
+                        form.password_again.errors %}
+                        <div class="form__error" role="alert">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+
+                    <!---->
+                    <div class="form__name form__block">
+                        {{ form.name(class="name__input form__element", placeholder="Name") }} {% for
+                        error in form.name.errors %}
+                        <p class="alert alert-danger" role="alert">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <!---->
+                    <div class="form__about form__block">
+                        {{ form.about(class="input__about", placeholder="About")}}<br />
+                        {% for error in form.about.errors %}
+                        <p class="alert alert-danger" role="alert">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <!---->
+                    <div class="form__button">
+                        {{ form.submit(type="submit", class="button__submit", value="Create") }}
+                    </div>
+                    {{message}}
+                </form>
+            </div>
+
+            <!--Блок в случае если такой аккаунт уже есть то пользователь перейдет на окно авторизации-->
+            <div class="content__login">
+                <!---->
+                <div class="login__text">
+                    Do you already have an account?
+                </div>
+                
+                <!---->
+                <div class="block__button">
+                    <button class="button__login">
+                        <a href="../login" class="login__link">Sign in</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
