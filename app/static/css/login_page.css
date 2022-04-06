@@ -144,6 +144,10 @@ body {
     width: 218px;
     border-radius: 10px;
     background-color: #1a73e8;
+    
+}
+
+.link__register{
     color: white;
 }
 

@@ -17,18 +17,18 @@
 <body>
     <div class="wrapper">
         <div class="content">
-            <!---->
+            <!--Шапка-контен логотип + надпись-->
             <div class="content__title">
-                <!---->
+                <!--Картинка-->
                 <div class="content__image">
                     <img src="../static/images/logo_welcome_page.svg" alt="" class="login__image">
                 </div>
-                <!---->
+                <!--Текст-->
                 <div class="content__text">
                     Sign in EcolStudy
                 </div>
             </div>
-            <!---->
+            <!--Блок с формой-->
             <div class="content__form">
                 <form action="" method="post" class="login__form">
                     {{ form.email(class="input__email", type="email", placeholder="Email") }}
@@ -53,16 +53,18 @@
                     <div>{{ message }}</div>
                 </form>
             </div>
-            <!---->
+            <!--Блок с переходом на регистрацию-->
             <div class="content__register">
                 <!---->
                 <div class="register__text">
                     Don't have an account yet?
                 </div>
 
-                <!---->
+                <!--Кнопка с регистрацией-->
                 <div class="register__button">
-                    <button class="button__register">Register</button>
+                    <button class="button__register">
+                        <a href="../register" class="link__register">Register</a>
+                    </button>
                 </div>
             </div>
         </div>
