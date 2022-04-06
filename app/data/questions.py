@@ -9,6 +9,8 @@ class Question(SqlAlchemyBase, SerializerMixin):
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
+    type = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     text = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    rigth_answer = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    right_answer = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    answers = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     points = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)

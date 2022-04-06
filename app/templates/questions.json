@@ -1,0 +1,94 @@
+{
+  "questions": [
+    {
+      "Выберите правильный ответ:": [
+        {
+          "text": "Hello! How <...> you?",
+          "right_answer": "are",
+          "answers": [
+            "is",
+            "are",
+            "am"
+          ],
+          "points": 1
+        },
+        {
+          "text": "Where <...> you been?",
+          "right_answer": "have",
+          "answers": [
+            "has",
+            "have"
+          ],
+          "points": 1
+        },
+        {
+          "text": "Кошка",
+          "right_answer": "cat",
+          "answer": [
+            "car",
+            "dog",
+            "cat"
+          ],
+          "points": "1"
+        },
+        {
+          "text": "Предпренимательство",
+          "right_answer": "entrepreneurship",
+          "answer": [
+            "entrepreneur",
+            "entrepreneurship",
+            "partnership"
+          ],
+          "points": "1"
+        },
+        {
+          "text": "Россия",
+          "right_answer": "Russia",
+          "answers": [
+            "Russia",
+            "Rusia",
+            "Rossia"
+          ],
+          "points": "1"
+        },
+        {
+          "text": "Сорока",
+          "right_answer": "Magpie",
+          "answers": [
+            "Raven",
+            "Magpie"
+          ],
+          "points": "1"
+        }
+      ]
+    },
+    {
+      "Переведите предложение:": [
+        {
+          "text": "Я читаю книгу",
+          "right_answer": "I'm reading a book",
+          "answers": "",
+          "points": 5
+        },
+        {
+          "text": "Сколько тебе лет?",
+          "right_answer": "How old are you?",
+          "answers": "",
+          "points": 5
+        },
+        {
+          "text": "Ты любишь читать?",
+          "right_answer": "Do you like reading?",
+          "answers": "",
+          "points": 5
+        },
+        {
+          "text": "Привет. Я из России.",
+          "right_answer": "Hi. I'm from Russia.",
+          "answers": "",
+          "points": 5
+        }
+      ]
+    }
+  ]
+}
