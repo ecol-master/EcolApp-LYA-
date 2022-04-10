@@ -3,13 +3,22 @@ from flask_wtf import FlaskForm
 from forms.user import LoginForm, RegisterForm
 from data import db_session
 from data.users import User
-from flask_login import login_user
+from flask_login import login_user, LoginManager
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
+login_manager = LoginManager()
+login_manager.init_app(app)
+
 db_session.global_init("db/users.db")
 db_sess = db_session.create_session()
+
+@login_manager.user_loader
+def load_user(user_id):
+    db_sess = db_session.create_session()
+    return db_sess.query(User).get(user_id)
+
 
 @app.route('/')
 def start_site():
@@ -35,24 +44,28 @@ def login():
 def reqister():
     form = RegisterForm()
     if form.validate_on_submit():
+        print("зашел сюда")
         if form.password.data != form.password_again.data:
+            print("Пароли не совпадают")
             return render_template('register_page.html', title='Регистрация',
                                    form=form,
                                    message="Пароли не совпадают")
+            
         db_sess = db_session.create_session()
         if db_sess.query(User).filter(User.email == form.email.data).first():
-            return render_template('register.html_page', title='Регистрация',
+            print("Такой пользователь уже есть")
+            return render_template('register_page.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
         user = User(
             name=form.name.data,
             email=form.email.data,
-            about=form.about.data
+            description=form.about.data
         )
         user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
-        return redirect('/login')
+        return redirect('/learn')
     return render_template('register_page.html', title='Регистрация', form=form)
 
 @app.route('/learn')
