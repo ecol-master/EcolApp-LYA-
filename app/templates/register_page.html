@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    
     <div class="wrapper">
         <div class="content">
             <!---->
@@ -27,47 +28,70 @@
 
             <!---->
             <div class="content__form">
-                <form action="" method="post" class="form">
+                <form action="" method="POST" class="form">
+                    {{ form.csrf_token }}
                     <!--Блок с полем для ввода почты и вывода ошибок в случае ошибки-->
                     <div class="form__email form__block">
                         {{ form.email(class="email__input form__element", type="email",
-                        placeholder="Email") }} {% for error in form.email.errors %}
-                        <div class="form__error" role="alert">{{ error }}</div>
-
-                        {% endfor %}
+                        placeholder="Email") }}
+                        <div class="form__errors" role="alert">
+                            {% for error in form.email.errors %}
+                                <p class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
                     </div>
 
                     <!---->
                     <div class="form__password form__block">
                         {{ form.password(class="password__input form__element", type="password",
-                        placeholder="Password") }} {% for error in form.password.errors %}
-                        <div class="form__error" role="alert">{{ error }}</div>
-                        {% endfor %}
+                        placeholder="Password") }} 
+                        <div class="form__errors" role="alert">
+                            {% for error in form.password.errors %}
+                                <p class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
                     </div>
 
                     <!---->
                     <div class="form__passwordagain form__block">
                         {{ form.password_again(class="passwordagain__input form__element",
-                        type="password", placeholder="Password again") }} {% for error in
-                        form.password_again.errors %}
-                        <div class="form__error" role="alert">{{ error }}</div>
-                        {% endfor %}
+                        type="password", placeholder="Password again") }} 
+                        <div class="form__errors" role="alert">
+                            {% for error in form.password_again.errors %}
+                                <p class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
                     </div>
+                       
 
                     <!---->
                     <div class="form__name form__block">
-                        {{ form.name(class="name__input form__element", placeholder="Name") }} {% for
-                        error in form.name.errors %}
-                        <p class="alert alert-danger" role="alert">{{ error }}</p>
-                        {% endfor %}
+                        {{ form.name(class="name__input form__element", placeholder="Name") }} 
+                        <div class="form__errors">
+                            {% for error in form.name.errors %}
+                                <p>
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
                     </div>
 
                     <!---->
                     <div class="form__about form__block">
-                        {{ form.about(class="input__about", placeholder="About")}}<br />
-                        {% for error in form.about.errors %}
-                        <p class="alert alert-danger" role="alert">{{ error }}</p>
-                        {% endfor %}
+                        {{ form.about(class="input__about", placeholder="About")}}
+                        <div class="form__errors">
+                            {% for error in form.about.errors %}
+                                <p>
+                                    {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
                     </div>
 
                     <!---->

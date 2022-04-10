@@ -3,8 +3,11 @@ import sqlalchemy
 from .db_session import SqlAlchemyBase
 from sqlalchemy import orm
 from sqlalchemy_serializer import SerializerMixin
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
-class User(SqlAlchemyBase, SerializerMixin):
+
+class User(SqlAlchemyBase, SerializerMixin, UserMixin):
     __tablename__ = 'users'
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
@@ -16,4 +19,10 @@ class User(SqlAlchemyBase, SerializerMixin):
     email = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     data_registration = sqlalchemy.Column(sqlalchemy.DateTime, nullable=True)
     password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    
+    hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+
+    def set_password(self, password):
+        self.hashed_password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.hashed_password, password)
