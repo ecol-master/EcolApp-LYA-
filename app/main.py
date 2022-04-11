@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from flask import Flask, render_template, redirect
 from flask_wtf import FlaskForm
 from forms.user import LoginForm, RegisterForm
@@ -32,7 +33,7 @@ def login():
         user = db_sess.query(User).filter(User.email == form.email.data).first()
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
-            return redirect("/learn")
+            return redirect("/study")
         return render_template('login.html',
                                message="Неправильный логин или пароль",
                                form=form)
@@ -65,12 +66,12 @@ def reqister():
         user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
-        return redirect('/learn')
+        return redirect('/study')
     return render_template('register_page.html', title='Регистрация', form=form)
 
-@app.route('/learn')
+@app.route('/study')
 def learn():
-    pass
+    return render_template("study_page.html")
 
 # some changes
 
