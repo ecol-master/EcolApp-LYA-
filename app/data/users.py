@@ -1,4 +1,6 @@
 import datetime
+from email.policy import default
+from numpy import require
 import sqlalchemy
 from .db_session import SqlAlchemyBase
 from sqlalchemy import orm
@@ -12,14 +14,20 @@ class User(SqlAlchemyBase, SerializerMixin, UserMixin):
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
-    surname = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    name = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    description = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    nickname = sqlalchemy.Column(sqlalchemy.String) # имя пользователя
+    description = sqlalchemy.Column(sqlalchemy.String, nullable=True) # описание в профиле пользователя
+    email = sqlalchemy.Column(sqlalchemy.String, nullable=True) # почта под которой прошла регистрация
+    password = sqlalchemy.Column(sqlalchemy.String, nullable=True) # пароль
+    hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True) # хэшированные пароль 
+    data_registration = sqlalchemy.Column(sqlalchemy.DateTime, nullable=True) # дата регистрации пользователя
+    role_id = sqlalchemy.Column(sqlalchemy.Integer, 
+                                sqlalchemy.ForeignKey("roles.id"), default=1)  # id роли пользователя
+    
+    # доп столбцы
+    learned_lessons = sqlalchemy.Column(sqlalchemy.String, nullable=True) # список уроков которые прошел пользователь
+    now_test_id = sqlalchemy.Column(sqlalchemy.Integer,
+                                sqlalchemy.ForeignKey("tests.id"))
 
-    email = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    data_registration = sqlalchemy.Column(sqlalchemy.DateTime, nullable=True)
-    password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
