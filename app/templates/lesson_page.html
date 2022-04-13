@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    {{ question.text }}
+
+    <form action="" method="post" class="question__form">
+        {{ form.csrf_token }}
+
+        {{ form.user_answer(class="question__answer") }}
+
+        {{ form.button_next(class="button_next") }}
+    </form>
+        {{ question.text }}
+        {{ question.id }}
 </body>
 </html>

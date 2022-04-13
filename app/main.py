@@ -9,9 +9,11 @@ from numpy import add, less
 from data import db_session
 from data.lessons import Lesson
 from data.users import User
-from forms.user import LoginForm, RegisterForm
+from forms.user import LoginForm, RegisterForm, QuestionForm
 from data.tests import Test
 from data.questions import Question
+
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -21,6 +23,11 @@ login_manager.init_app(app)
 
 db_session.global_init("db/users.db")
 db_sess = db_session.create_session()
+
+
+def write_file(text):
+    with open("write.txt", mode="w") as file:
+        file.write(text)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -122,7 +129,7 @@ def add_questions():
 @app.route('/study')
 def learn():
 #     user_id = current_user.id
-    add_lessons()
+    # add_lessons()
     lessons = db_sess.query(Lesson).all()
     return render_template("study_page.html", lessons=lessons)
 
@@ -138,7 +145,6 @@ def show_lesson(lesson):
     try:
         new_test.user_id = current_user.id
 
-        
         db_sess.add(new_test)
         db_sess.commit()
 
@@ -148,14 +154,29 @@ def show_lesson(lesson):
     except Exception:   
         db_sess.add(new_test)
         db_sess.commit()
+    return redirect(f"/study/{lesson}/1")
 
-    question = db_sess.query(Question).filter(Question.id == int(questions_for_test[0])).first()
-    return render_template("lesson_page.html", question=question)
-
-@app.route("/study/<lesson>/<int:num_question>")
-def show_new_question():
-    pass
-
+@app.route("/study/<lesson>/<int:num_question>",  methods=['GET', 'POST'])
+def show_new_question(lesson, num_question):
+    write_file("здесь")
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+    test_id = user.now_test_id
+    test = db_sess.query(Test).filter(Test.id == test_id).first()   
+    question_id = int(test.questions.split()[test.current_question])
+    question = db_sess.query(Question).filter(Question.id == question_id).first()
+    question_form = QuestionForm()
+    if question_form.validate_on_submit():
+        write_file("зашел во внутрь")
+        if num_question  ==  len(test.questions.split()):
+            write_file("проверил")
+            return "<p> Тест завершен </p>"
+        else:
+            write_file("пошел дальше")
+            test.current_question += 1
+            db_sess.commit()
+            write_file("дошел до переадресации")
+            return redirect(f"/study/{lesson}/{test.current_question + 1}")
+    return render_template("lesson_page.html", form=question_form, question=question)
 
 if __name__ == "__main__":
     app.run()
