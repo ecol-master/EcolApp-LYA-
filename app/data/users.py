@@ -19,7 +19,7 @@ class User(SqlAlchemyBase, SerializerMixin, UserMixin):
     data_registration = sqlalchemy.Column(sqlalchemy.DateTime, nullable=True) # дата регистрации пользователя
     role_id = sqlalchemy.Column(sqlalchemy.Integer, 
                                 sqlalchemy.ForeignKey("roles.id"), default=1)  # id роли пользователя
-    
+
     # доп столбцы
     learned_lessons = sqlalchemy.Column(sqlalchemy.String, nullable=True) # список уроков которые прошел пользователь
     now_test_id = sqlalchemy.Column(sqlalchemy.Integer,

@@ -1,3 +1,4 @@
+from email.policy import default
 import sqlalchemy
 from .db_session import SqlAlchemyBase
 from sqlalchemy import orm
@@ -13,3 +14,4 @@ class Test(SqlAlchemyBase):
     user_id = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
     date_of_completion = sqlalchemy.Column(sqlalchemy.DateTime,
                                      default=datetime.datetime.now)
+    is_loyal = sqlalchemy.Column(sqlalchemy.Boolean, default=True)

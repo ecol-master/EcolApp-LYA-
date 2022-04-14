@@ -12,3 +12,4 @@ class Question(SqlAlchemyBase, SerializerMixin):
     text = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     rigth_answer = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     points = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
+    
