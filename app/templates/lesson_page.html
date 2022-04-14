@@ -1,13 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
 
+    <link rel="stylesheet" href="../static/css/header_styles.css">
+    <link rel="stylesheet" href="../static/css/footer_styles.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--Header -шапочка -->
+        <div class="header__container">
+            <!--сам хедер с содержимым-->
+            <header class="header">
+                <!--Л-->
+                <div class="header__title">
+                    <img src="../static/images/logo_welcome_page.svg" alt="" class="header__image">
+
+                    <p class="header__text">
+                        EcolStudy
+                    </p>
+                </div>
+
+                <!---->
+                <div class="header__menu">
+                    <!---->
+                    <ul class="header__list">
+                        <li class="header__item">
+                            <a href="../study" class="header__link header__active">Study</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="../forum" class="header__link">Forum</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="../profile" class="header__link">Profile</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="../news" class="header__link">News</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!---->
+                <div class="header__account">
+                    <!---->
+                    <div class="account__logo">
+                        <img src="../static/images/logo_welcome_page.svg" alt="" class="account__image">
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!--main - основной контент-->
+        <main class="main__container">
+
+        </main>
+        <!--Футер одинаковый для каждой страницы-->
+        <footer class="footer__container">
+            <div class="footer__information">
+                <div class="footer__title">
+                    <div class="title__image">
+                        <img src="../static/images/logo_welcome_page.svg" alt="">
+                    </div>
+
+
+                    <div class="text__main">
+                        Plan and book your perfect trip with expert advice, travel tips destination information from us.
+                    </div>
+                    <div class="text__low">
+                        ©2022 EcolStudy. All rights reserved
+                    </div>
+
+                </div>
+
+                <div class="footer__countries">
+                    <div class="countries__title">
+                        Countries
+                    </div>
+
+                    <div class="counties__menu">
+                        <ul class="countries__list">
+                            <li class="countries__item">
+                                <a href="" class="countries__linkk">Russia</a>
+                            </li>
+                            <li class="countries__item">
+                                <a href="" class="countries__linkk">New Zeland</a>
+                            </li>
+                            <li class="countries__item">
+                                <a href="" class="countries__linkk">Sweden</a>
+                            </li>
+                            <li class="countries__item">
+                                <a href="" class="countries__linkk">Canada</a>
+                            </li>
+                            <li class="countries__item">
+                                <a href="" class="countries__linkk">Finland</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+
+                <div class="footer__shops">
+                    <div class="shops__title">
+                        Shops
+                    </div>
+
+                    <div class="shops__menu">
+                        <ul class="shops__list">
+                            <li class="shops__item">
+                                <a href="" class="shops__linkk">Pull & Bear</a>
+                            </li>
+                            <li class="shops__item">
+                                <a href="" class="shops__linkk">Farmacy</a>
+                            </li>
+                            <li class="shops__item">
+                                <a href="" class="shops__linkk">EcolStore & Jaz</a>
+                            </li>
+                            <li class="shops__item">
+                                <a href="" class="shops__linkk">Music Store</a>
+                            </li>
+                            <li class="shops__item">
+                                <a href="" class="shops__linkk">BookStore</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__interest">
+                    <div class="interests__title">
+                        Interests
+                    </div>
+
+                    <div class="interest__menu">
+                        <ul class="interests__list">
+                            <li class="interests__item">
+                                <a href="" class="interests__linkk">Spotify</a>
+                            </li>
+                            <li class="interests__item">
+                                <a href="" class="interests__linkk">Labirint</a>
+                            </li>
+                            <li class="interests__item">
+                                <a href="" class="interests__linkk">Aqua</a>
+                            </li>
+                            <li class="interests__item">
+                                <a href="" class="interests__linkk">Dream & Gardens</a>
+                            </li>
+                            <li class="interests__item">
+                                <a href="" class="interests__linkk">Asics</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__links">
+
+                <div class="links__line">
+                    <div class="line"></div>
+                </div>
+
+                <div class="links__menu">
+                    <ul class="links__list">
+                        <li class="links__item">
+                            <img src="../static/images/twiter_logo.svg" alt="">
+                        </li>
+                        <li class="links__item">
+                            <img src="../static/images/facebook_logo.svg" alt="">
+                        </li>
+                        <li class="links__item">
+                            <img src="../static/images/instagramm_logo.svg" alt="">
+                        </li>
+                        <li class="links__item">
+                            <img src="../static/images/linkedin_logo.svg" alt="">
+                        </li>
+                        <li class="links__item">
+                            <img src="../static/images/youtube_logo.svg" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
     <form action="" method="post" class="question__form">
         {{ form.csrf_token }}
 
@@ -15,7 +194,8 @@
 
         {{ form.button_next(class="button_next") }}
     </form>
-        {{ question.text }}
-        {{ question.id }}
+    {{ question.text }}
+    {{ question.id }}
 </body>
+
 </html>
