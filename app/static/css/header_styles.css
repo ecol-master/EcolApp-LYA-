@@ -1,0 +1,56 @@
+.header__container {
+    height: 100px;
+}
+
+.header {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.header__title {
+    display: flex;
+    align-items: center;
+    width: 224px;
+    justify-content: space-between;
+}
+
+.header__text {
+    font-size: 20px;
+}
+
+
+.header__image {}
+
+.header__menu {
+    width: 100%;
+}
+
+.header__list {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.header__item {}
+
+.header__link {
+    color: #24292f;
+}
+
+.header__active {
+    color: #ed8f15;
+}
+
+.header__link:hover {
+    color: #1066cf;
+}
+
+.header__account {}
+
+.account__logo {}
+
+.account__image {}

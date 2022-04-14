@@ -1,0 +1,176 @@
+*,
+*::before,
+::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    line-height: 1;
+}
+
+/* Footer */
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 482px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer__information {
+    display: flex;
+    justify-content: space-between;
+    height: 200px;
+    margin-top: 70px;
+
+}
+
+.footer__title {
+    max-width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title__image {}
+
+
+
+.text__main {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: initial;
+}
+
+
+.text__low {
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.footer__countries {}
+
+.countries__title {
+    margin-bottom: 30px;
+}
+
+.counties__menu {
+    height: 100%;
+}
+
+.countries__list {
+    height: 160px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.countries__item {}
+
+.countries__link {}
+
+.footer__shops {}
+
+.shops__title {
+    margin-bottom: 30px;
+}
+
+.shops__menu {
+    height: 100%;
+}
+
+.shops__list {
+    height: 160px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.shops__item {}
+
+.shops__link {}
+
+.footer__interest {}
+
+.interests__title {
+    margin-bottom: 30px;
+}
+
+.interest__menu {
+    height: 100%;
+}
+
+.interests__list {
+    height: 160px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.interests__item {}
+
+.interests__link {}
+
+.footer__links {}
+
+.links__line {
+    margin-bottom: 35px;
+}
+
+.line {
+    height: 0.6px;
+    background-color: #C4C4C4;
+}
+
+.links__menu {}
+
+.links__list {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.links__item {}
+
+
+[class*="__linkk"] {
+    color: #848484;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+[class*="__title"] {
+    color: #0f0f0f;
+    font-size: 17px;
+}

@@ -39,62 +39,61 @@ body {
 
 .wrapper {}
 
-.header__container {
-    height: 100px;
-}
 
-.header {
-    height: 100%;
+/* Header */
+
+
+
+/* Main */
+
+
+/* СТили для блока с уроками */
+
+
+.main__lessons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-
+    flex-direction: column;
+    font-family: din-round, sans-serif;
 }
 
-.header__title {
+.lesson__wraper {
+    margin-bottom: 15px;
+}
+
+.lesson__block {
     display: flex;
-    align-items: center;
-    width: 224px;
-    justify-content: space-between;
+    padding: 15px 15px;
+    border: 1px solid hsl(210 18% 81% / 1);
+    border-radius: 5px;
+    /* width: fit-content; */
+    width: 330px;
+    height: 150px;
 }
 
-.header__text{
-    font-size: 20px;
+.lesson__image {
+    display: flex;
+    flex-direction: column;
+    /* margin: 10px; */
+    justify-content: center;
+    margin-right: 20px;
 }
 
-
-.header__image {}
-
-.header__menu {
+.lesson__information {
     width: 100%;
-}
-
-.header__list {
     display: flex;
-    width: 100%;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
-.header__item {}
-
-.header__link {
-    color: #24292f;  
+.title__information {
+    font-size: 21px;
+    text-align: center;
 }
 
-.header__active{
-    color: #ed8f15;
+.information__description { 
+    text-align: center;
+    font-size: 14px;
 }
-
-.header__link:hover{
-    color: #1066cf;
-}
-
-.header__account {}
-
-.account__logo {}
-
-.account__image {}
 
 
 [class*="__container"] {
