@@ -1,19 +1,14 @@
 import json
-import random
 
 from flask import Flask, redirect, render_template
 from flask_login import LoginManager, current_user, login_user
-from flask_wtf import FlaskForm
-from numpy import add, less
-
 from data import db_session
 from data.lessons import Lesson
 from data.users import User
 from forms.user import LoginForm, RegisterForm, QuestionForm
 from data.tests import Test
 from data.questions import Question
-
-
+import random
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -24,10 +19,18 @@ login_manager.init_app(app)
 db_session.global_init("db/users.db")
 db_sess = db_session.create_session()
 
+ 
 
 def write_file(text):
     with open("write.txt", mode="w") as file:
         file.write(text)
+
+def check_is_auth():
+    try:
+        user = db_sess.query(User).filter(User.id == current_user.id).first()
+        return True
+    except Exception:
+        return False
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -59,16 +62,13 @@ def login():
 def reqister():
     form = RegisterForm()
     if form.validate_on_submit():
-        print("зашел сюда")
         if form.password.data != form.password_again.data:
-            print("Пароли не совпадают")
             return render_template('register_page.html', title='Регистрация',
                                    form=form,
                                    message="Пароли не совпадают")
             
         db_sess = db_session.create_session()
         if db_sess.query(User).filter(User.email == form.email.data).first():
-            print("Такой пользователь уже есть")
             return render_template('register_page.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
@@ -80,7 +80,7 @@ def reqister():
         user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
-        return redirect('/study')
+        return redirect('/login')
     return render_template('register_page.html', title='Регистрация', form=form)
 
 
@@ -88,19 +88,27 @@ def add_lessons():
     lessons = [
         {"title":"Экология", 
         "title_image":"../static/images/logo_welcome_page.svg",
-        "href":"../study/ecology" 
+        "href":"../study/ecology",
+        "description":"Урок для изучения экологии",
+        "href_name":"ecology" 
         },
         {"title":"Земля", 
         "title_image":"../static/images/logo_welcome_page.svg",
-        "href":"../study/eath" 
+        "href":"../study/eath",
+        "description":"Урок для изучения экологии",
+        "href_name":"eath"  
         },
         {"title":"Вода", 
         "title_image":"../static/images/logo_welcome_page.svg", 
-        "href":"../study/water"
+        "href":"../study/water",
+        "description":"Урок для изучения экологии",
+        "href_name":"water" 
         },
         {"title":"Небо", 
         "title_image":"../static/images/logo_welcome_page.svg", 
-        "href":"../study/sky"
+        "href":"../study/sky", 
+        "description":"Урок для изучения экологии",
+        "href_name":"sky" 
         }
     ]
 
@@ -110,6 +118,7 @@ def add_lessons():
         lesson_db.title = lesson["title"]
         lesson_db.title_image = lesson["title_image"]
         lesson_db.href = lesson["href"]
+        lesson_db.description = lesson["description"]
         db_sess.add(lesson_db)
         db_sess.commit()
 
@@ -130,12 +139,16 @@ def add_questions():
 def learn():
 #     user_id = current_user.id
     # add_lessons()
+    if not check_is_auth():
+        return redirect("/")
     lessons = db_sess.query(Lesson).all()
     return render_template("study_page.html", lessons=lessons)
 
 @app.route("/study/<lesson>")
 def show_lesson(lesson):
     add_questions()
+    if not check_is_auth():
+        return redirect("/")
     questions_for_test = random.choices([str(q.id) for q in db_sess.query(Question).all()], k=5)
 
     new_test = Test()
@@ -158,20 +171,27 @@ def show_lesson(lesson):
 
 @app.route("/study/<lesson>/<int:num_question>",  methods=['GET', 'POST'])
 def show_new_question(lesson, num_question):
+    if not check_is_auth():
+        return redirect("/")
     write_file("здесь")
+
     user = db_sess.query(User).filter(User.id == current_user.id).first()
     test_id = user.now_test_id
     test = db_sess.query(Test).filter(Test.id == test_id).first()   
+    
     question_id = int(test.questions.split()[test.current_question])
     question = db_sess.query(Question).filter(Question.id == question_id).first()
+    
     question_form = QuestionForm()
     if question_form.validate_on_submit():
         write_file("зашел во внутрь")
         if num_question  ==  len(test.questions.split()):
             write_file("проверил")
-            return "<p> Тест завершен </p>"
+            return f"<p>Тест завершен </p> {test.is_loyal}"
         else:
-            write_file("пошел дальше")
+            if question.rigth_answer != question_form.user_answer.data:
+               test.is_loyal = False
+               db_sess.commit() 
             test.current_question += 1
             db_sess.commit()
             write_file("дошел до переадресации")
