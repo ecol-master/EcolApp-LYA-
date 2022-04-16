@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Подключаю сторонние файды-->
+    <link rel="stylesheet" href="../static/css/end_test_page.css">
+
+    <!--Подключаю шрифты-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">    
+</head>
+
+<body>
+    <div class="wrapper__content">
+
+        <div class="content">
+
+            {% if test.is_loyal == True %}
+
+                <p class="content__result">
+                    Ура! Вы верно ответили на все вопросы!
+                </p>
+
+                    <div class="result__image">
+                        <img src="../static/images/laugh_100px.png" alt="">
+                    </div>
+                </div>
+
+            {% else %}
+                <p class="content__result">
+                    К сожалению где то вы допустили ошибку :(
+                </p>
+                <div class="result__image">
+                    <img src="../static/images/sadly_100px.png" alt="">
+                </div>
+            {% endif %}
+            <div class="content__next">
+                <a href="../study" class="content__link">
+                    <button class="button__home">Next</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
