@@ -187,7 +187,7 @@ def show_new_question(lesson, num_question):
         write_file("зашел во внутрь")
         if num_question  ==  len(test.questions.split()):
             write_file("проверил")
-            return f"<p>Тест завершен </p> {test.is_loyal}"
+            return redirect("/end_test")
         else:
             if question.rigth_answer != question_form.user_answer.data:
                test.is_loyal = False
@@ -196,7 +196,14 @@ def show_new_question(lesson, num_question):
             db_sess.commit()
             write_file("дошел до переадресации")
             return redirect(f"/study/{lesson}/{test.current_question + 1}")
-    return render_template("lesson_page.html", form=question_form, question=question)
+    return render_template("lesson_page.html", form=question_form, question=question, num_question=num_question, len_questions=len(test.questions.split()))
+
+
+@app.route("/end_test")
+def end_test():
+
+    test = db_sess.query(Test).filter(Test.id == current_user.now_test_id).first()
+    return render_template("end_test_page.html", test=test)
 
 if __name__ == "__main__":
     app.run()
