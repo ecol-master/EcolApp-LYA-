@@ -1,14 +1,16 @@
-import json
-
+from django import db
 from flask import Flask, redirect, render_template
 from flask_login import LoginManager, current_user, login_user
 from data import db_session
 from data.lessons import Lesson
 from data.users import User
-from forms.user import LoginForm, RegisterForm, QuestionForm
+from data.news import News
+from data.articles import Article
+from forms.user import LoginForm, RegisterForm, QuestionForm, CreateArticleForm, CreateNewsForm
 from data.tests import Test
 from data.questions import Question
 import random
+import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -137,12 +139,14 @@ def add_questions():
 # обработчик при переходе на страницу уроков
 @app.route('/study')
 def learn():
-#     user_id = current_user.id
+    if not check_is_auth():
+        return redirect("/")
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
     # add_lessons()
     if not check_is_auth():
         return redirect("/")
     lessons = db_sess.query(Lesson).all()
-    return render_template("study_page.html", lessons=lessons)
+    return render_template("study_page.html", lessons=lessons, user=user)
 
 @app.route("/study/<lesson>")
 def show_lesson(lesson):
@@ -201,9 +205,76 @@ def show_new_question(lesson, num_question):
 
 @app.route("/end_test")
 def end_test():
-
+    if not check_is_auth():
+        return redirect("/")
     test = db_sess.query(Test).filter(Test.id == current_user.now_test_id).first()
     return render_template("end_test_page.html", test=test)
+
+
+@app.route("/profile")
+def show_profile_information():
+    if not check_is_auth():
+        return redirect("/")
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    news = db_sess.query(News).filter(News.user_id == current_user.id)
+    articles_count = db_sess.query(Article).filter(Article.user_id == current_user.id).all()    
+    try:
+        lessons_count = len(user.learned_lessons.split())
+    except Exception:
+        lessons_count = 0
+    return render_template("profile_page.html", user=user, articles_count=len(articles_count), 
+    lessons_count=lessons_count)
+
+
+@app.route("/create_article", methods=['GET', 'POST'])
+def create_article():
+    if not check_is_auth():
+        return redirect("/")
+    article_form  = CreateArticleForm()
+    if article_form.validate_on_submit():
+        article = Article()
+        article.title = article_form.title_article.data
+        article.description = article_form.text_article.data
+        article.user_id = current_user.id
+        db_sess.add(article)
+        db_sess.commit()
+        return redirect("/articles")
+    return render_template("create_article.html", form=article_form)
+
+@app.route("/create_news", methods=['GET', 'POST'])
+def create_news():
+    if not check_is_auth():
+        return redirect("/")
+    news_form = CreateNewsForm()
+    if news_form.validate_on_submit():
+        news = News()
+        news.title = news_form.title_news.data
+        news.content = news_form.text_news.data
+        news.user_id = current_user.id
+        db_sess.add(news)
+        db_sess.commit()
+        return redirect("/news")
+    return render_template("create_news.html", form=news_form)
+
+@app.route("/articles")
+def show_articles():
+    if not check_is_auth():
+        return redirect("/")
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+    articles = db_sess.query(Article).all()
+    
+    return render_template("articles_page.html", articles=articles, user=user)
+
+
+@app.route("/news")
+def show_news():
+    if not check_is_auth():
+        return redirect("/")
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+    news = db_sess.query(News).all()
+    
+    return render_template("news_page.html", news=news, user=user)
 
 if __name__ == "__main__":
     app.run()

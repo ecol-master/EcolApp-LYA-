@@ -20,3 +20,13 @@ class LoginForm(FlaskForm):
 class QuestionForm(FlaskForm):
     user_answer = StringField("Ответ")
     button_next = SubmitField("Следующий вопрос")
+
+class CreateArticleForm(FlaskForm):
+    title_article = StringField("Title")
+    text_article = TextAreaField("Your Story")
+    submit = SubmitField('Publish')
+
+class CreateNewsForm(FlaskForm):
+    title_news = StringField("Title")
+    text_news = TextAreaField("Your Story")
+    submit = SubmitField('Publish')
