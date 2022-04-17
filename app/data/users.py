@@ -1,3 +1,5 @@
+import datetime
+from email.policy import default
 import sqlalchemy
 from .db_session import SqlAlchemyBase
 from sqlalchemy import orm
@@ -16,9 +18,11 @@ class User(SqlAlchemyBase, SerializerMixin, UserMixin):
     email = sqlalchemy.Column(sqlalchemy.String, nullable=True) # почта под которой прошла регистрация
     password = sqlalchemy.Column(sqlalchemy.String, nullable=True) # пароль
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True) # хэшированные пароль 
-    data_registration = sqlalchemy.Column(sqlalchemy.DateTime, nullable=True) # дата регистрации пользователя
+    data_registration = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now, nullable=True) # дата регистрации пользователя
     role_id = sqlalchemy.Column(sqlalchemy.Integer, 
-                                sqlalchemy.ForeignKey("roles.id"), default=1)  # id роли пользователя
+                                sqlalchemy.ForeignKey("roles.id"), default=2)  # id роли пользователя
+
+    account_photo = sqlalchemy.Column(sqlalchemy.String, default="../static/images/photo_user_default.jpg")
 
     # доп столбцы
     learned_lessons = sqlalchemy.Column(sqlalchemy.String, nullable=True) # список уроков которые прошел пользователь

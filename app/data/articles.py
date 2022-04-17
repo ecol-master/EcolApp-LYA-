@@ -1,4 +1,5 @@
 import datetime
+from email.policy import default
 import sqlalchemy
 from .db_session import SqlAlchemyBase
 from sqlalchemy import orm
@@ -17,4 +18,4 @@ class Article(SqlAlchemyBase, SerializerMixin):
                                 sqlalchemy.ForeignKey("users.id"))
     user = orm.relation('User')
 
-    data_publication = sqlalchemy.Column(sqlalchemy.DateTime, nullable=True)
+    data_publication = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now, nullable=True)
