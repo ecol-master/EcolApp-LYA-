@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create News</title>
+
+    <!--Подключаю файлы-->
+    <link rel="stylesheet" href="../static/css/create_news.css">
+
+    <!--Подлючаю шрифты-->
+</head>
+
+<body>
+    <div class="wrapper__container">
+
+        <form action="" method="post" class="news__form">
+
+            {{ form.csrf_token }}
+            <div class="top__block">
+                <div class="title__input">
+                    {{ form.title_news(class="input__title", value="", placeholder="Title") }}
+                </div>
+
+                <div class="title__buttons">
+                    <div class="publish">
+                        <a href="../articles" class="publish__link">
+                            <button class="publish__button">Publish</button>
+                        </a>
+                    </div>
+
+                    <div class="back">
+                        <a href="../profile" class="back__link">
+                            <button class="back__button">Back</button>
+                        </a>
+                    </div>
+
+                    
+                </div>
+
+            </div>
+
+            <div class="bottom__block">
+                {{ form.text_news(class="txta acticle__text", value="", placeholder="Here Your Text")}}
+            </div>
+
+        </form>
+    </div>
+
+    <script src="../static/scripts/text_area_script.js"></script>
+</body>
+
+</html>
