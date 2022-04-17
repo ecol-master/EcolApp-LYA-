@@ -1,0 +1,202 @@
+*,
+*::before,
+::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    line-height: 1;
+}
+
+.main__container{
+}
+
+.user__content {
+    border: 2px solid hsl(210 18% 81% / 1);
+    border-radius: 10px;
+}
+
+.profile__photo {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.profile__image{
+    width: 70px;
+}
+
+.statistick__block {
+    margin-bottom: 20px;
+}
+
+.title__statistick {
+    width: calc(100% - 200px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+}
+
+.info__nickname {
+    width: calc(100% - 200px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+}
+
+.title__nickname {}
+
+.user__nickname {}
+
+.info__description {
+    width: calc(100% - 200px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+}
+
+.title__description {}
+
+.user__deckription {}
+
+.info__data_register {
+    width: calc(100% - 200px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+}
+
+.title__data_register {}
+
+.user__data_regsiter {}
+
+.info__articles {
+    width: calc(100% - 200px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+}
+
+.title__articles {}
+
+.user__articles {}
+
+.info__lessons {
+    width: calc(100% - 200px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+}
+
+.title__lessons {}
+
+.user__lessons {}
+
+.blue {
+    background-color: rgb(190, 224, 241);
+}
+
+.grey {
+    background-color: rgb(245, 244, 244);
+}
+
+
+.content__actions {}
+
+.actions__title {
+    text-align: center;
+    margin-top: 56px;
+    font-size: 20px;
+}
+
+.actions__buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 35px;
+    border-radius: 5px;
+}
+
+.link__lesson {}
+
+.button__lesson {
+    width: 140px;
+    height: 27px;
+    border-radius: 5px;
+    background-color: #1a73e8;
+    color: white;
+    font-size: 14px;
+}
+
+.link__article {}
+
+.button__article {
+    width: 140px;
+    height: 27px;
+    border-radius: 5px;
+    background-color: #2da44e;
+    color: white;
+    font-size: 14px;
+    
+}
+
+.link__news {}
+
+.button__news {
+    width: 140px;
+    height: 27px;
+    border-radius: 5px;
+    background-color: #2da44e;
+    color: white;
+    font-size: 14px;
+}
+
+.link__delete {}
+
+.button__delete {
+    width: 140px;
+    height: 27px;
+    color: white;
+    background-color: rgb(233, 71, 71);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+[class*="__container"] {
+    max-width: 1057px;
+    margin: 0 auto;
+}

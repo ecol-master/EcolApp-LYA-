@@ -53,4 +53,6 @@
 
 .account__logo {}
 
-.account__image {}
+.account__image {
+    width: 50px;
+}

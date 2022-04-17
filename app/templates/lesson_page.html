@@ -41,7 +41,7 @@
                             <a href="../../study" class="header__link header__active">Study</a>
                         </li>
                         <li class="header__item">
-                            <a href="../../forum" class="header__link">Forum</a>
+                            <a href="../../articles" class="header__link">Articles</a>
                         </li>
                         <li class="header__item">
                             <a href="../../profile" class="header__link">Profile</a>
@@ -56,7 +56,7 @@
                 <div class="header__account">
                     <!---->
                     <div class="account__logo">
-                        <img src="../../static/images/logo_welcome_page.svg" alt="" class="account__image">
+                        <img src="{{url_for('static', filename=user.account_photo)}}" alt="" class="account__image">
                     </div>
                 </div>
             </header>
