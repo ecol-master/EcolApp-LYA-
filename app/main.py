@@ -9,8 +9,10 @@ from data.articles import Article
 from forms.user import LoginForm, RegisterForm, QuestionForm, CreateArticleForm, CreateNewsForm
 from data.tests import Test
 from data.questions import Question
+from api.__register_api import register_api
 import random
 import json
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -21,7 +23,8 @@ login_manager.init_app(app)
 db_session.global_init("db/users.db")
 db_sess = db_session.create_session()
 
- 
+register_api(app=app)
+
 
 def write_file(text):
     with open("write.txt", mode="w") as file:
@@ -275,6 +278,7 @@ def show_news():
     news = db_sess.query(News).all()
     
     return render_template("news_page.html", news=news, user=user)
+
 
 if __name__ == "__main__":
     app.run()
