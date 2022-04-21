@@ -12,6 +12,8 @@ def abort_if_user_not_found(user_id):
         abort(404, message=f"User {user_id} not found")
 
 
+admins_keys = ["123Dfg5HYTL4**93"]
+
 class UsersResource(Resource):
     def get(self, user_id):
         abort_if_user_not_found(user_id)
@@ -34,19 +36,30 @@ class UsersResource(Resource):
 
 
 class UsersListResource(Resource):
-    def get(self):
+    def get(self, api_key=0):
         db_sess = db_session.create_session()
         users = db_sess.query(User).all()
-        return jsonify(
-            {
-                'users':
-                    [item.to_dict(only=(
-                        'nickname', 'email'))
-                        for item in users]
-            }
-        )
 
-    def post(self):
+        if api_key in admins_keys:
+            return jsonify(
+                {
+                    'users':
+                        [item.to_dict(only=(
+                            'nickname', 'email', "password"))
+                            for item in users]
+                }
+            )
+        else:
+            return jsonify(
+                {
+                    'users':
+                        [item.to_dict(only=(
+                            'nickname', 'email'))
+                            for item in users]
+                }
+            )
+
+    def post(self, api_key=0):
         db_sess = db_session.create_session()
         args = parser.parse_args()
         user = User(

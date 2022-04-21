@@ -4,3 +4,4 @@ from . import questions
 from . import news
 from . import articles
 from . import roles
+from . import bot_users
