@@ -89,6 +89,10 @@ def reqister():
     return render_template('register_page.html', title='Регистрация', form=form)
 
 
+@app.route("/api")
+def show_api_doc():
+    return render_template("api_page.html")
+
 def add_lessons():
     lessons = [
         {"title":"Экология", 
@@ -238,7 +242,7 @@ def create_article():
     if article_form.validate_on_submit():
         article = Article()
         article.title = article_form.title_article.data
-        article.description = article_form.text_article.data
+        article.text = article_form.text_article.data
         article.user_id = current_user.id
         db_sess.add(article)
         db_sess.commit()
