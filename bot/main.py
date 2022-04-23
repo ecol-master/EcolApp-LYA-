@@ -17,7 +17,7 @@ async def main():
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
     )
 
-    await set_bot_commands(bot=bot)
+    await set_bot_commands(bot=bot, admin_id=ADMIN_ID)
 
     register_user_handlers(dp)
     register_admin_handlers(dp=dp, admin_id=ADMIN_ID)

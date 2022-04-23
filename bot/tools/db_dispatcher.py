@@ -3,15 +3,15 @@ import requests
 
 class DataBaseDispatcher:
     def __init__(self) -> None:
-        self.server_api = "http://127.0.0.1:5000/ecol_study_api/"
-        self.api_key = "123Dfg5HYTL4**93"
+        self.server_api = "http://127.0.0.1:5000/ecol_study_api"
+
     def get_users(self):
         req = f"{self.server_api}users"
         response = requests.get(req).json()
         return response
     
     def add_user(self, **kwargs):
-        req = f"{self.server_api}users"
+        req = f"{self.server_api}/users"
         response = requests.post(req, json={
             "nickname":kwargs["admin_name"], 
             "description":"", 
@@ -22,16 +22,41 @@ class DataBaseDispatcher:
         return response == {'success': 'OK'}
         
 
-    def login_user(self, *args, **kwargs):
-        req = f"{self.server_api}users/{self.api_key}"
-        response =requests.get(req).json()
-        for data in response:
-            if data["email" == kwargs["user_email"]] and data["password"] == kwargs["user_password"]:
-                pass
+    def check_login(self, email, password):
+        req = f"{self.server_api}/user_login/"
+        response =requests.post(req, json={
+            "email":email, "password":password
+        }).json()
         return response
 
-    def get_articles(self):
-        pass
+    def login_user(self, *args, **kwargs):
+        # отправление запроса на сервер для получения пользователя
+        email, password = kwargs["user_email"], kwargs["user_password"]
+        response = self.check_login(email, password)
+        match response:
+            case {'success': int(id)}:
+                req = f"{self.server_api}/bot/users/"
+                response_bot = requests.post(req, json={
+                    "user_id_tg":args[0], "account_id":id
+                }).json()
+                return response_bot
+            case _:
+                return response
+
+    def get_user_info(self, tg_id):
+        req = f"{self.server_api}/bot/users/{tg_id}"
+        response = requests.get(req).json()
+        return response
+        
+    def check_bot_user(self, tg_id):
+        req = f"{self.server_api}/bot/users/{tg_id}"
+        response = requests.get(req).json()
+        return response
+
+    def delete_bot_user(self, tg_id):
+        req = f"{self.server_api}/bot/users/{tg_id}"
+        response = requests.delete(req).json()
+        return response
     
     def get_daily_info(self):
         pass
