@@ -23,7 +23,6 @@ class User(SqlAlchemyBase, SerializerMixin, UserMixin):
                                 sqlalchemy.ForeignKey("roles.id"), default=2)  # id роли пользователя
 
     account_photo = sqlalchemy.Column(sqlalchemy.String, default="../static/images/photo_user_default.jpg")
-
     # доп столбцы
     learned_lessons = sqlalchemy.Column(sqlalchemy.String, nullable=True) # список уроков которые прошел пользователь
     now_test_id = sqlalchemy.Column(sqlalchemy.Integer,

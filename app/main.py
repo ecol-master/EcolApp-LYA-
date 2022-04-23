@@ -80,7 +80,8 @@ def reqister():
         user = User(
             nickname=form.name.data,
             email=form.email.data,
-            description=form.about.data
+            description=form.about.data,
+            password=form.password.data
         )
         user.set_password(form.password.data)
         db_sess.add(user)
