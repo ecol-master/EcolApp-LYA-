@@ -150,7 +150,7 @@ def learn():
     if not check_is_auth():
         return redirect("/")
     user = db_sess.query(User).filter(User.id == current_user.id).first()
-    # add_lessons()
+    add_lessons()
     if not check_is_auth():
         return redirect("/")
     lessons = db_sess.query(Lesson).all()

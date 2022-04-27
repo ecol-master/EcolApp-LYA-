@@ -1,0 +1,119 @@
+*,
+*::before,
+::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    line-height: 1;
+}
+
+.content__header {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+}
+
+.content__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content__menu{
+    margin: 25px 0;
+}
+
+.content__main {
+    padding-bottom: 20px;
+}
+
+.content__doc {}
+
+.doc__users {
+    border: 1px solid #444c56;
+    border-radius: 10px;
+    padding: 15px 15px;
+    margin-bottom: 25px;
+}
+
+.doc__title {
+    text-align: center;
+}
+
+.text__doc {}
+
+.example {
+    display: flex;
+    justify-content: space-between;
+}
+
+.example__text {}
+
+.example__code {
+    color: rgb(63, 171, 63);
+}
+
+.span__code {}
+
+.doc__methods {}
+
+.span__methods {
+    color: rgb(168, 168, 40);
+}
+
+.doc__articles {
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 15px 15px;
+    margin-bottom: 25px;
+}
+
+.doc__news {
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 15px 15px;
+    margin-bottom: 25px;
+}
+
+.doc__lessons {
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 15px 15px;
+    margin-bottom: 25px;
+}
+
+
+[class*="__container"] {
+    max-width: 1057px;
+    margin: 0 auto;
+}

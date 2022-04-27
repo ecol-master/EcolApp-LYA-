@@ -98,6 +98,8 @@ body {
     width: 280px;
     border: 2px solid hsl(210 18% 81% / 1);
     outline-color:  #4d8fe6;
+    padding: 5px 5px;
+    font-size: 13px;
 }
 
 .input__password{
@@ -106,6 +108,8 @@ body {
     border-radius: 5px;
     border: 2px solid hsl(210 18% 81% / 1);
     outline-color:  #4d8fe6;
+    padding: 5px 5px;
+    font-size: 13px;
 }
 
 .button__login{
@@ -117,7 +121,7 @@ body {
 }
 
 .button__login:hover{
-    background-color: #44d16c;;
+    background-color: #44d16c;
 }
 
 .content__register {
@@ -153,4 +157,102 @@ body {
 
 .button__register:hover{
     background-color: #6ba0e4;
+}
+
+
+.button{
+    background-color: #44d16c;
+}
+
+/* Syles Dark Theme */
+
+.dark{
+    /* background-color: #554867 #18191a */
+    background-color: #18191a;
+    color: #f6f8fa;
+}   
+
+.dark .button{
+    background-color: #2d2e20;
+}
+
+.dark .content__form {
+    padding: 10px 15px;
+    height: 224px;
+    border-radius: 10px;
+    background-color: #22272e;
+    border: 1px solid #444c56;
+}
+
+.dark .login__form{
+    display: flex;
+    flex-direction: column;
+    height: 140px;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.dark .input__email{
+    border-radius: 5px;
+    height: 30px;
+    width: 280px;
+    border: 2px solid #444c56;
+    outline: none;
+    background: none;
+    color: white;
+}
+
+.dark .input__password{
+    height: 30px;
+    width: 280px;
+    border-radius: 5px;
+    border: 2px solid #444c56;
+    outline: none;
+    background: none;
+    color: white;
+}
+
+.dark .button__login{
+    width: 218px;
+    height: 30px;
+    background-color: #2da44e;
+    color: white;
+    border-radius: 10px;
+}
+
+.button__login:hover{
+    background-color: #44d16c;
+}
+
+.dark .content__register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 98px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #22272e;
+    border: 1px solid #444c56;
+}
+
+.button{
+    background-color: #4B336A;
+    border-radius: 10px;
+    width: 218px;
+    height: 30px;
+    color: white;
+    
+}
+
+.dark .button{
+    background-color: #4B336A;
+    color: white;
+}
+
+.content__theme{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }

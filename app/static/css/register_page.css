@@ -189,3 +189,139 @@ body {
 .login__link {
     color: white;
 }
+
+/* DarkTheme */
+
+.dark .content__form {
+    padding: 15px 15px;
+    background-color: #22272e;
+    border: 1px solid #444c56;
+    border-radius: 10px;
+    color: white;
+}
+
+
+
+.dark .form__block{
+    margin-bottom: 15px;
+    border: none;
+}
+
+
+
+.dark .form_element{
+    height: 30px;
+    width: 280px;
+    background-color: #22272e;
+    border: 1px solid #444c56;
+    color: white;
+}
+
+.dark .email__input{
+    height: 30px;
+    width: 280px;
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color: #4d8fe6;
+    border-radius: 5px;
+    background-color: #22272e;
+    border: 1px solid #444c56;
+    color: white;
+}
+
+.dark .password__input{
+    height: 30px;
+    width: 280px;
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color: #4d8fe6;
+    border-radius: 5px;
+    background-color: #22272e;
+    border: 1px solid #444c56;
+    color: white;
+}
+
+.dark .passwordagain__input{
+    height: 30px;
+    width: 280px;
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color: #4d8fe6;
+    border-radius: 5px;
+    background-color: #22272e;
+    border: 1px solid #444c56;
+    color: white;
+}
+
+.dark .name__input{
+    height: 30px;
+    width: 280px;
+    border: 2px solid hsl(210 18% 81% / 1);
+    outline-color: #4d8fe6;
+    border-radius: 5px;
+    background-color: #22272e;
+    border: 1px solid #444c56;
+    color: white;
+}
+
+
+
+.dark .input__about{
+    border-radius: 5px;
+    background-color: #22272e;
+    border: 1px solid #444c56;
+    color: white;
+}
+
+
+.button__submit{
+    border-radius: 7px;
+    width: 218px;
+    height: 30px;
+    background-color: #e09f15;
+    color: white;
+}
+
+.dark .content__login {
+    margin-top: 20px;
+    background-color: #22272e;
+    border: 1px solid #444c56;
+    padding: 15px 15px;
+    border-radius: 10px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.button__login {
+    width: 218px;
+    height: 30px;
+    background-color: #1a73e8;
+    border-radius: 7px;
+}
+
+.login__link {
+    color: white;
+}
+
+.dark{
+    /* background-color: #554867 #18191a */
+    background-color: #18191a;
+    color: #f6f8fa;
+}  
+
+
+.button{
+    background-color: #4B336A;
+    border-radius: 10px;
+    width: 218px;
+    height: 30px;
+    color: white;
+}
+
+.content__theme{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

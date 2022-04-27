@@ -27,8 +27,7 @@ class User(SqlAlchemyBase, SerializerMixin, UserMixin):
     learned_lessons = sqlalchemy.Column(sqlalchemy.String, nullable=True) # список уроков которые прошел пользователь
     now_test_id = sqlalchemy.Column(sqlalchemy.Integer,
                                 sqlalchemy.ForeignKey("tests.id"))
-
-
+                                
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
 
