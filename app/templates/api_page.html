@@ -4,11 +4,155 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Api</title>
+    <title>EcolStudy Api</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/api_page.css">
 
 </head>
 <body>
-    
+    <div class="wrapper__container font-weight-normal">
+            <header class="content__header">
+                <div class="header__logo">
+                    <img src="../static/images/logo_welcome_page.svg" alt="" class="header__image">
+                </div>
+
+                <div class="header__text">
+                    EcolStudy API Documentation
+                </div>
+            </header>
+
+            <main class="content__menu">
+                <ul class="content__list">
+                    <li class="content__item">
+                        <a href="#users" class="content__link">Users</a>
+                    </li>
+                    <li class="content__item">
+                        <a href="#articles" class="content__link">Articles</a>
+                    </li>
+                    <li class="content__item">
+                        <a href="#articles" class="content__link">News</a>
+                    </li>
+                    <li class="content__item">
+                        <a href="#lessons" class="content__link">Lessons</a>
+                    </li>
+                </ul>
+            </main>
+
+            <main class="content__main">
+                <div class="content__doc">
+                    <div class="doc__users" id="users">
+                        <h2 class="doc__title">Users</h2>
+                        <div class="text__doc">
+                                <div class="example">
+                                    <h3 class="example__text">
+                                        Url для действий с одним пользователем
+                                    </h3>
+
+                                    <p class="example__code">
+                                        <span class="span__code">/ecol_study_api/user/int:user_id</span>
+                                    </p>
+                                </div>
+                                <div class="example">
+                                    <h3 class="example__text">
+                                        Url для действий со всеми пользователями
+                                    </h3>
+
+                                    <p class="example__code">
+                                        <span class="span__code">/ecol_study_api/users/</span>
+                                    </p>
+                                </div>
+                        </div>
+
+                        <div class="doc__methods">
+                            Методы: <span class="span__methods">GET POST DELETE</span>
+                        </div>
+                    </div>
+
+                    <div class="doc__articles" id="articles">
+                        <h2 class="doc__title">Articles</h2>
+                        <div class="text__doc">
+                            <div class="example">
+                                <h3 class="example__text">
+                                    Url для действий с одной статьей
+                                </h3>
+
+                                <p class="example__code">
+                                    <span class="span__code">/ecol_study_api/articles/int:article_id</span>
+                                </p>
+                            </div>
+                            <div class="example">
+                                <h3 class="example__text">
+                                    Url для действий со всеми статьями
+                                </h3>
+
+                                <p class="example__code">
+                                    <span class="span__code">/ecol_study_api/articles/</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="doc__methods">
+                            Методы: <span class="span__methods">GET</span>
+                        </div>
+                    </div>
+
+                    <div class="doc__news" id="news">
+                        <h2 class="doc__title">News</h2>
+                        <div class="text__doc">
+                            <div class="example">
+                                <h3 class="example__text">
+                                    Url для действий с одной новостью
+                                </h3>
+
+                                <p class="example__code">
+                                    <span class="span__code">/ecol_study_api/news/int: news_id</span>
+                                </p>
+                            </div>
+                            <div class="example">
+                                <h3 class="example__text">
+                                    Url для действий со всеми новостями
+                                </h3>
+
+                                <p class="example__code">
+                                    <span class="span__code">/ecol_study_api/news/int:news_id</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="doc__methods">
+                            Методы: <span class="span__methods">GET</span>
+                        </div>
+                    </div>
+
+                    <div class="doc__lessons" id="lessons">
+                        <h2 class="doc__title">Lessons</h2>
+                        <div class="text__doc">
+                            <div class="example">
+                                <h3 class="example__text">
+                                    Url для действий с одим уроком
+                                </h3>
+
+                                <p class="example__code">
+                                    <span class="span__code">/ecol_study_api/lessons/int: lesson_id</span>
+                                </p>
+                            </div>
+                            <div class="example">
+                                <h3 class="example__text">
+                                    Url для действий со всеми уроками
+                                </h3>
+
+                                <p class="example__code">
+                                    <span class="span__code">/ecol_study_api/lessons/int:lesson_id</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="doc__methods">
+                            Методы: <span class="span__methods">GET</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+    </div>
 </body>
 </html>
