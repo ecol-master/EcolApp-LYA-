@@ -137,9 +137,12 @@ body {
 .content__finder {}
 
 .main__text {
+    height: 100%;
     font-size: 68px;
     font-weight: 80px;
 }
+
+
 
 .low__text {}
 
@@ -156,6 +159,21 @@ body {
 .content__image1 {}
 
 
+/* block2 */
+
+.content__block2{
+    margin-top: 30px;
+}
+
+.features__content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.features__tittle{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
 
 [class*="__container"] {
     max-width: 1230px;
