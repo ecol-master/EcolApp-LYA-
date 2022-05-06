@@ -44,6 +44,8 @@ class DataBaseDispatcher:
                 return response
 
     def get_user_info(self, tg_id):
+        result = self.check_login()
+
         req = f"{self.server_api}/bot/users/{tg_id}"
         response = requests.get(req).json()
         return response
@@ -61,4 +63,3 @@ class DataBaseDispatcher:
     def get_daily_info(self):
         pass
 
-    

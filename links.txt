@@ -4,3 +4,4 @@ git push https://github.com/ecol-master/EcolApp-LYA-.git - команда для
 
 # для тг бота
 https://github.com/MasterGroosha/telegram-feedback-bot/blob/master/bot/commandsworker.py - ссылка на репозиторий груши, код для подключения команд для бота через код
+https://core.telegram.org/bots/api#formatting-options - оформление текста в сообщениях бота

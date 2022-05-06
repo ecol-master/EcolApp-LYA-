@@ -1,4 +1,3 @@
-from django import db
 from flask import Flask, redirect, render_template
 from flask_login import LoginManager, current_user, login_user
 from data import db_session
@@ -20,7 +19,7 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-db_session.global_init("db/users.db")
+db_session.global_init("db/database.db")
 db_sess = db_session.create_session()
 
 register_api(app=app)
@@ -208,7 +207,7 @@ def show_new_question(lesson, num_question):
             db_sess.commit()
             write_file("дошел до переадресации")
             return redirect(f"/study/{lesson}/{test.current_question + 1}")
-    return render_template("lesson_page.html", form=question_form, question=question, num_question=num_question, len_questions=len(test.questions.split()))
+    return render_template("lesson_page.html", form=question_form, question=question, num_question=num_question, len_questions=len(test.questions.split()), user=user)
 
 
 @app.route("/end_test")

@@ -114,6 +114,7 @@ async def show_user_account_actions(message: types.Message):
 async def user_account_statistic(callback: types.CallbackQuery):
     bot = callback.bot
     await bot.answer_callback_query(callback.id)
+    
     info = db_dispatcher.get_user_info(callback.from_user.id)
 
     text_info = f"Your nickname: {info['Name']}\nDescription profile: {info['description']}\nData registration: {info['data_registration']} "
