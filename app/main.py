@@ -144,7 +144,7 @@ def learn():
     if not check_is_auth():
         return redirect("/")
     user = db_sess.query(User).filter(User.id == current_user.id).first()
-    add_lessons()
+    # add_lessons()
     if not check_is_auth():
         return redirect("/")
     lessons = db_sess.query(Lesson).all()
@@ -152,7 +152,7 @@ def learn():
 
 @app.route("/study/<lesson>")
 def show_lesson(lesson):
-    add_questions()
+    # add_questions()
     if not check_is_auth():
         return redirect("/")
     questions_for_test = random.choices([str(q.id) for q in db_sess.query(Question).all()], k=5)
