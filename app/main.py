@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, url_for
 from flask_login import LoginManager, current_user, login_user
 from data import db_session
 from data.lessons import Lesson
@@ -61,8 +61,7 @@ def login():
     return render_template('login_page.html', form=form)
 
 
-# начал делать форму для регистрации
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/register', methods=['POST', 'GET'])
 def reqister():
     form = RegisterForm()
     if form.validate_on_submit():
@@ -70,12 +69,8 @@ def reqister():
             return render_template('register_page.html', title='Регистрация',
                                    form=form,
                                    message="Пароли не совпадают")
-            
+
         db_sess = db_session.create_session()
-        if db_sess.query(User).filter(User.email == form.email.data).first():
-            return render_template('register_page.html', title='Регистрация',
-                                   form=form,
-                                   message="Такой пользователь уже есть")
         user = User(
             nickname=form.name.data,
             email=form.email.data,
@@ -85,7 +80,7 @@ def reqister():
         user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
-        return redirect('/login')
+        return redirect(url_for('login'), 301)
     return render_template('register_page.html', title='Регистрация', form=form)
 
 
@@ -132,8 +127,8 @@ def add_lessons():
         db_sess.commit()
 
 def add_questions():
-    file_question = open("templates/questions.json")
-    all_questions = json.load(file_question)
+    with open("templates/questions.json", 'r', encoding='utf-8') as file_question:
+        all_questions = json.load(file_question)
     for quiz in all_questions["questions"]:
         quiz_db = Question()
         quiz_db.text = quiz["text"]
